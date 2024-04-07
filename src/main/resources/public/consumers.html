@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/keycloak-js@24.0.2/dist/keycloak.min.js"></script>
+    <script>
+        const keycloak = new Keycloak({
+            url: 'https://auth.guillermods.com',
+            realm: 'customers',
+            clientId: 'consumers'
+        });
+
+        keycloak.init({
+            onLoad: 'login-required'
+
+        }).then(function (auth) {
+            console.log(keycloak.token)
+        })
+    </script>
+</body>
+
+</html>
